@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Te Amo ∞ ❤️</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at center,
+        #fff 0%,
+        #ffdceb 25%,
+        #ffb5d2 55%,
+        #ff8fbd 100%);
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   PANTALLA INICIAL
+========================= */
+
+#inicio {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 50;
+
+    background:
+        radial-gradient(circle,
+        #ffffff,
+        #ffe4ef,
+        #ffb8d5);
+
+    transition: opacity 2s ease;
+}
+
+
+.titulo {
+    color: #ff1473;
+
+    font-size: clamp(3rem, 12vw, 7rem);
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 15px #ff79ad,
+        0 0 30px #ff247f,
+        0 0 60px #ff247f;
+
+    animation:
+        brillo 1.5s infinite alternate,
+        latido 2s infinite;
+}
+
+
+.infinito {
+    margin-top: 10px;
+
+    color: #ff3b86;
+
+    font-size: clamp(1.2rem, 4vw, 2rem);
+
+    font-weight: bold;
+
+    text-shadow:
+        0 0 8px white,
+        0 0 20px #ff4f9a;
+}
+
+
+.simbolo {
+    margin-top: 10px;
+
+    color: #ff1975;
+
+    font-size: clamp(5rem, 18vw, 10rem);
+
+    text-shadow:
+        0 0 10px white,
+        0 0 30px #ff247f;
+
+    animation:
+        girarSuave 5s linear infinite,
+        brillo 1.5s infinite alternate;
+}
+
+
+/* =========================
+   GALAXIA
+========================= */
+
+#galaxia {
+    position: fixed;
+
+    width: 100vw;
+    height: 100vh;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    perspective: 1000px;
+
+    opacity: 0;
+
+    transition: opacity 3s ease;
+}
+
+#galaxia.activa {
+    opacity: 1;
+}
+
+
+/* CENTRO */
+
+.centro {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: #ff176f;
+
+    font-size: clamp(2rem, 7vw, 4rem);
+
+    font-weight: 900;
+
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #ff247f,
+        0 0 50px #ff247f;
+
+    z-index: 20;
+
+    animation:
+        latido 1.5s infinite;
+}
+
+
+/* =========================
+   MENSAJES GALÁCTICOS
+========================= */
+
+.mensaje {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform-origin: center;
+
+    color: #ff176f;
+
+    font-weight: bold;
+
+    font-size: clamp(0.8rem, 2.5vw, 1.4rem);
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 12px #ff65a2;
+
+    animation:
+        orbitar var(--duracion) linear infinite,
+        parpadear 2s ease-in-out infinite alternate;
+}
+
+
+/* =========================
+   ÓRBITAS
+========================= */
+
+.orbita {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(255, 55, 135, 0.18);
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CORAZONES
+========================= */
+
+.corazon {
+    position: fixed;
+
+    bottom: -30px;
+
+    color: #ff1975;
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    z-index: 30;
+
+    animation:
+        subir var(--tempo) linear forwards,
+        piscar 1s infinite alternate;
+}
+
+
+/* =========================
+   PIE DE PÁGINA
+========================= */
+
+footer {
+    position: fixed;
+
+    bottom: 7px;
+
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: rgba(120, 30, 75, 0.75);
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    z-index: 100;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes brillo {
+
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.4);
+    }
+}
+
+
+@keyframes latido {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+@keyframes girarSuave {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes parpadear {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+
+@keyframes piscar {
+
+    from {
+        opacity: 0.2;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes subir {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(0.6);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-115vh)
+            rotate(360deg)
+            scale(1.3);
+
+        opacity: 0;
+    }
+}
+
+
+/* Movimiento orbital */
+
+@keyframes orbitar {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg)
+            translateX(var(--radio))
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg)
+            translateX(var(--radio))
+            rotate(-360deg);
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section id="inicio">
+
+    <div class="titulo">
+        TE AMO MUCHO ❤️
+    </div>
+
+    <div class="infinito">
+        Estos 100 "Te Amo" se multiplican
+        <br>
+        por infinito...
+    </div>
+
+    <div class="simbolo">
+        ∞
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALAXIA
+========================= -->
+
+<div id="galaxia">
+
+    <div class="centro">
+        TE AMO ❤️
+    </div>
+
+</div>
+
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+    Hecho por HUGO DELGADO ACHE701 ❤️
+</footer>
+
+
+<script>
+
+/* =========================
+   CREAR GALAXIA
+========================= */
+
+const galaxia =
+    document.getElementById("galaxia");
+
+
+/*
+   Crear órbitas
+*/
+
+for (let i = 1; i <= 6; i++) {
+
+    const orbita =
+        document.createElement("div");
+
+    orbita.className = "orbita";
+
+    const ancho =
+        160 + i * 90;
+
+    const alto =
+        90 + i * 55;
+
+    orbita.style.width =
+        ancho + "px";
+
+    orbita.style.height =
+        alto + "px";
+
+    orbita.style.transform =
+        `translate(-50%, -50%) rotate(${i * 18}deg)`;
+
+    galaxia.appendChild(orbita);
+}
+
+
+/*
+   Crear muchísimos Te Amo
+*/
+
+for (let i = 0; i < 100; i++) {
+
+    const mensaje =
+        document.createElement("div");
+
+    mensaje.className = "mensaje";
+
+    mensaje.textContent =
+        "Te Amo ❤️";
+
+    /*
+       Diferentes radios
+    */
+
+    const radio =
+        80 + Math.random() * 320;
+
+    /*
+       Velocidad diferente
+    */
+
+    const duracion =
+        8 + Math.random() * 15;
+
+    /*
+       Ángulo inicial
+    */
+
+    const angulo =
+        Math.random() * 360;
+
+    /*
+       Tamaño
+    */
+
+    const escala =
+        0.7 + Math.random() * 0.7;
+
+    mensaje.style.setProperty(
+        "--radio",
+        radio + "px"
+    );
+
+    mensaje.style.setProperty(
+        "--duracion",
+        duracion + "s"
+    );
+
+    mensaje.style.transform =
+        `translate(-50%, -50%)
+         rotate(${angulo}deg)
+         translateX(${radio}px)
+         rotate(-${angulo}deg)
+         scale(${escala})`;
+
+    /*
+       Retraso para que no aparezcan
+       todos al mismo tiempo
+    */
+
+    mensaje.style.animationDelay =
+        "-" + Math.random() * duracion + "s";
+
+    galaxia.appendChild(mensaje);
+}
+
+
+/* =========================
+   MOSTRAR GALAXIA
+========================= */
+
+setTimeout(() => {
+
+    document.getElementById("inicio").style.opacity =
+        "0";
+
+    setTimeout(() => {
+
+        document.getElementById("inicio").style.display =
+            "none";
+
+        galaxia.classList.add("activa");
+
+    }, 2000);
+
+}, 5000);
+
+
+/* =========================
+   CORAZONES FLOTANTES
+========================= */
+
+function crearCorazon() {
+
+    const corazon =
+        document.createElement("div");
+
+    corazon.className =
+        "corazon";
+
+    const tipos = [
+        "♥",
+        "♡",
+        "❤",
+        "💗",
+        "💕"
+    ];
+
+    corazon.textContent =
+        tipos[
+            Math.floor(
+                Math.random() * tipos.length
+            )
+        ];
+
+    corazon.style.left =
+        Math.random() * 100 + "vw";
+
+    corazon.style.fontSize =
+        (10 + Math.random() * 22) + "px";
+
+    corazon.style.setProperty(
+        "--tempo",
+        (5 + Math.random() * 7) + "s"
+    );
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+
+        corazon.remove();
+
+    }, 13000);
+}
+
+
+/*
+   Muchos corazones
+*/
+
+setInterval(
+    crearCorazon,
+    280
+);
+
+</script>
+
+</body>
+</html>
