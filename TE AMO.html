@@ -1,8 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Te Amo ∞ ❤️</title>
 
@@ -53,6 +57,8 @@ body {
         #ffb8d5);
 
     transition: opacity 2s ease;
+
+    cursor: pointer;
 }
 
 
@@ -108,10 +114,53 @@ body {
 
 
 /* =========================
+   BOTÓN DE ENTRADA
+========================= */
+
+.entrar {
+
+    margin-top: 20px;
+
+    padding: 12px 28px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    color: #ff176f;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    border: 2px solid #ff5a9c;
+
+    box-shadow:
+        0 0 10px #ff8fbd,
+        0 0 25px #ffb5d2;
+
+    animation:
+        brillo 1.5s infinite alternate,
+        latido 2s infinite;
+
+}
+
+
+/* =========================
+   AUDIO
+========================= */
+
+#audioAmor {
+    display: none;
+}
+
+
+/* =========================
    GALAXIA
 ========================= */
 
 #galaxia {
+
     position: fixed;
 
     width: 100vw;
@@ -129,14 +178,18 @@ body {
     transition: opacity 3s ease;
 }
 
+
 #galaxia.activa {
     opacity: 1;
 }
 
 
-/* CENTRO */
+/* =========================
+   CENTRO
+========================= */
 
 .centro {
+
     position: absolute;
 
     left: 50%;
@@ -167,6 +220,7 @@ body {
 ========================= */
 
 .mensaje {
+
     position: absolute;
 
     left: 50%;
@@ -197,16 +251,19 @@ body {
 ========================= */
 
 .orbita {
+
     position: absolute;
 
     left: 50%;
     top: 50%;
 
-    border: 1px solid rgba(255, 55, 135, 0.18);
+    border:
+        1px solid rgba(255, 55, 135, 0.18);
 
     border-radius: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
     pointer-events: none;
 }
@@ -217,6 +274,7 @@ body {
 ========================= */
 
 .corazon {
+
     position: fixed;
 
     bottom: -30px;
@@ -240,6 +298,7 @@ body {
 ========================= */
 
 footer {
+
     position: fixed;
 
     bottom: 7px;
@@ -327,6 +386,7 @@ footer {
 @keyframes subir {
 
     0% {
+
         transform:
             translateY(0)
             rotate(0deg)
@@ -340,6 +400,7 @@ footer {
     }
 
     100% {
+
         transform:
             translateY(-115vh)
             rotate(360deg)
@@ -350,11 +411,14 @@ footer {
 }
 
 
-/* Movimiento orbital */
+/* =========================
+   MOVIMIENTO ORBITAL
+========================= */
 
 @keyframes orbitar {
 
     from {
+
         transform:
             translate(-50%, -50%)
             rotate(0deg)
@@ -363,6 +427,7 @@ footer {
     }
 
     to {
+
         transform:
             translate(-50%, -50%)
             rotate(360deg)
@@ -372,10 +437,27 @@ footer {
 }
 
 </style>
+
 </head>
 
 
 <body>
+
+
+<!-- =========================
+     AUDIO
+========================= -->
+
+<audio
+    id="audioAmor"
+    loop
+    preload="auto">
+
+    <source
+        src="https://raw.githubusercontent.com/ACHE701/AUDIO/29e5e083decaa38f92f8e138795ace36861ed204/HUMBE%20-%20AMOR%20DE%20CINE%20%28Visualizer%29.mp3"
+        type="audio/mpeg">
+
+</audio>
 
 
 <!-- =========================
@@ -389,16 +471,25 @@ footer {
     </div>
 
     <div class="infinito">
+
         Estos 100 "Te Amo" se multiplican
+
         <br>
+
         por infinito...
+
     </div>
 
     <div class="simbolo">
         ∞
     </div>
 
+    <div class="entrar">
+        ❤️ TOCA PARA ENTRAR ❤️
+    </div>
+
 </section>
+
 
 
 <!-- =========================
@@ -414,21 +505,39 @@ footer {
 </div>
 
 
-<!-- PIE DE PÁGINA -->
+
+<!-- =========================
+     PIE DE PÁGINA
+========================= -->
 
 <footer>
+
     Hecho por HUGO DELGADO ACHE701 ❤️
+
 </footer>
+
 
 
 <script>
 
+
 /* =========================
-   CREAR GALAXIA
+   VARIABLES
 ========================= */
 
 const galaxia =
     document.getElementById("galaxia");
+
+const inicio =
+    document.getElementById("inicio");
+
+const audio =
+    document.getElementById("audioAmor");
+
+
+/* =========================
+   CREAR GALAXIA
+========================= */
 
 
 /*
@@ -440,7 +549,8 @@ for (let i = 1; i <= 6; i++) {
     const orbita =
         document.createElement("div");
 
-    orbita.className = "orbita";
+    orbita.className =
+        "orbita";
 
     const ancho =
         160 + i * 90;
@@ -455,14 +565,16 @@ for (let i = 1; i <= 6; i++) {
         alto + "px";
 
     orbita.style.transform =
-        `translate(-50%, -50%) rotate(${i * 18}deg)`;
+        `translate(-50%, -50%)
+         rotate(${i * 18}deg)`;
 
     galaxia.appendChild(orbita);
 }
 
 
+
 /*
-   Crear muchísimos Te Amo
+   Crear 100 Te Amo
 */
 
 for (let i = 0; i < 100; i++) {
@@ -470,10 +582,12 @@ for (let i = 0; i < 100; i++) {
     const mensaje =
         document.createElement("div");
 
-    mensaje.className = "mensaje";
+    mensaje.className =
+        "mensaje";
 
     mensaje.textContent =
         "Te Amo ❤️";
+
 
     /*
        Diferentes radios
@@ -482,12 +596,14 @@ for (let i = 0; i < 100; i++) {
     const radio =
         80 + Math.random() * 320;
 
+
     /*
        Velocidad diferente
     */
 
     const duracion =
         8 + Math.random() * 15;
+
 
     /*
        Ángulo inicial
@@ -496,6 +612,7 @@ for (let i = 0; i < 100; i++) {
     const angulo =
         Math.random() * 360;
 
+
     /*
        Tamaño
     */
@@ -503,15 +620,18 @@ for (let i = 0; i < 100; i++) {
     const escala =
         0.7 + Math.random() * 0.7;
 
+
     mensaje.style.setProperty(
         "--radio",
         radio + "px"
     );
 
+
     mensaje.style.setProperty(
         "--duracion",
         duracion + "s"
     );
+
 
     mensaje.style.transform =
         `translate(-50%, -50%)
@@ -520,37 +640,82 @@ for (let i = 0; i < 100; i++) {
          rotate(-${angulo}deg)
          scale(${escala})`;
 
+
     /*
-       Retraso para que no aparezcan
-       todos al mismo tiempo
+       Retraso
     */
 
     mensaje.style.animationDelay =
-        "-" + Math.random() * duracion + "s";
+        "-" +
+        Math.random() * duracion +
+        "s";
+
 
     galaxia.appendChild(mensaje);
 }
 
 
+
 /* =========================
-   MOSTRAR GALAXIA
+   INICIAR EXPERIENCIA
 ========================= */
 
-setTimeout(() => {
+function iniciarExperiencia() {
 
-    document.getElementById("inicio").style.opacity =
+    /*
+       Reproducir música
+    */
+
+    audio.volume = 0.75;
+
+    audio.play()
+        .then(() => {
+
+            console.log(
+                "Música iniciada correctamente ❤️"
+            );
+
+        })
+        .catch((error) => {
+
+            console.log(
+                "El navegador bloqueó el audio:",
+                error
+            );
+
+        });
+
+
+    /*
+       Ocultar pantalla inicial
+    */
+
+    inicio.style.opacity =
         "0";
+
 
     setTimeout(() => {
 
-        document.getElementById("inicio").style.display =
+        inicio.style.display =
             "none";
 
-        galaxia.classList.add("activa");
+        galaxia.classList.add(
+            "activa"
+        );
 
     }, 2000);
 
-}, 5000);
+}
+
+
+/* =========================
+   TOCAR PARA ENTRAR
+========================= */
+
+inicio.addEventListener(
+    "click",
+    iniciarExperiencia
+);
 
 
 /* =========================
@@ -565,39 +730,57 @@ function crearCorazon() {
     corazon.className =
         "corazon";
 
+
     const tipos = [
+
         "♥",
         "♡",
         "❤",
         "💗",
         "💕"
+
     ];
+
 
     corazon.textContent =
         tipos[
             Math.floor(
-                Math.random() * tipos.length
+                Math.random() *
+                tipos.length
             )
         ];
 
+
     corazon.style.left =
-        Math.random() * 100 + "vw";
+        Math.random() * 100 +
+        "vw";
+
 
     corazon.style.fontSize =
-        (10 + Math.random() * 22) + "px";
+        (10 +
+        Math.random() * 22) +
+        "px";
+
 
     corazon.style.setProperty(
         "--tempo",
-        (5 + Math.random() * 7) + "s"
+        (5 +
+        Math.random() * 7) +
+        "s"
     );
 
-    document.body.appendChild(corazon);
+
+    document.body.appendChild(
+        corazon
+    );
+
 
     setTimeout(() => {
 
         corazon.remove();
 
     }, 13000);
+
 }
 
 
@@ -610,7 +793,39 @@ setInterval(
     280
 );
 
+
+/* =========================
+   INTENTO DE AUTOPLAY
+========================= */
+
+/*
+   Algunos navegadores permiten
+   iniciar automáticamente.
+
+   Si lo bloquean, el clic de
+   "TOCA PARA ENTRAR" lo activará.
+*/
+
+window.addEventListener(
+    "load",
+    () => {
+
+        audio.volume = 0.75;
+
+        audio.play()
+            .catch(() => {
+
+                console.log(
+                    "Esperando interacción del usuario..."
+                );
+
+            });
+
+    }
+);
+
 </script>
 
 </body>
 </html>
+```
